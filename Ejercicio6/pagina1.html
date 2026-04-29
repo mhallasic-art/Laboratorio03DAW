@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Página 1</title>
+</head>
+<body>
+
+<h2>Cambiar tamaño y color del texto</h2>
+
+<p id="texto">Este es un texto de ejemplo</p>
+
+<!-- Botones tamaño -->
+<button onclick="aumentarTexto()">Aumentar tamaño</button>
+<button onclick="disminuirTexto()">Disminuir tamaño</button>
+
+<br><br>
+
+<!-- Botones color -->
+<button onclick="colorRojo()">Rojo</button>
+<button onclick="colorAzul()">Azul</button>
+<button onclick="colorNegro()">Negro</button>
+
+<script>
+let tamaño = 16;
+
+function aumentarTexto() {
+    tamaño += 2;
+    document.getElementById("texto").style.fontSize = tamaño + "px";
+}
+
+function disminuirTexto() {
+    tamaño -= 2;
+    document.getElementById("texto").style.fontSize = tamaño + "px";
+}
+
+function colorRojo() {
+    document.getElementById("texto").style.color = "red";
+}
+
+function colorAzul() {
+    document.getElementById("texto").style.color = "blue";
+}
+
+function colorNegro() {
+    document.getElementById("texto").style.color = "black";
+}
+</script>
+
+</body>
+</html>

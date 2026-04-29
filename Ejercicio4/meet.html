@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Extraer código de Google Meet</title>
+</head>
+<body>
+
+<h2>Extraer código de Google Meet</h2>
+
+<input type="text" id="url" placeholder="Pega el enlace de Meet aquí">
+<button onclick="obtenerCodigo()">Obtener código</button>
+
+<p id="resultado"></p>
+
+<script>
+function obtenerCodigo() {
+    const url = document.getElementById("url").value;
+
+    // Separar por "/" y obtener la última parte
+    const partes = url.split("/");
+    const codigoConGuiones = partes[partes.length - 1];
+
+    // Quitar los guiones
+    const codigoLimpio = codigoConGuiones.replace(/-/g, "");
+
+    // Mostrar resultado
+    document.getElementById("resultado").innerText =
+        "Código sin guiones: " + codigoLimpio;
+}
+</script>
+
+</body>
+</html>

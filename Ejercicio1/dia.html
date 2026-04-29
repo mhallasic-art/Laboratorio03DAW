@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Día de la semana</title>
+</head>
+<body>
+
+<h2>Obtener día de la semana</h2>
+<p id="resultado"></p>
+
+<script>
+    // Función que recibe el número del día y devuelve el nombre
+    function obtenerDiaSemana(dia) {
+        const dias = [
+            "Domingo",
+            "Lunes",
+            "Martes",
+            "Miércoles",
+            "Jueves",
+            "Viernes",
+            "Sábado"
+        ];
+        return dias[dia];
+    }
+
+    // Obtener la fecha actual
+    const fechaActual = new Date();
+    const numeroDia = fechaActual.getDay();
+
+    // Mostrar resultado
+    const textoDia = obtenerDiaSemana(numeroDia);
+    document.getElementById("resultado").innerText = 
+        "Hoy es: " + textoDia;
+</script>
+
+</body>
+</html>

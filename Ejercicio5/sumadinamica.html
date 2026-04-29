@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Tabla dinámica y suma</title>
+</head>
+<body>
+
+<h2>Generar tabla dinámica</h2>
+
+<!-- Formulario -->
+<label>Cantidad de valores:</label>
+<input type="number" id="cantidad" min="1">
+<button onclick="crearTabla()">Crear tabla</button>
+
+<br><br>
+
+<!-- Contenedor de la tabla -->
+<div id="contenedorTabla"></div>
+
+<br>
+
+<!-- Botón para sumar -->
+<button onclick="sumarTabla()">Sumar valores</button>
+
+<p id="resultado"></p>
+
+<script>
+function crearTabla() {
+    const cantidad = document.getElementById("cantidad").value;
+    const contenedor = document.getElementById("contenedorTabla");
+
+    // Limpiar tabla anterior
+    contenedor.innerHTML = "";
+
+    let tabla = "<table border='1'><tr>";
+
+    for (let i = 0; i < cantidad; i++) {
+        // Número aleatorio entre 1 y 100
+        let numero = Math.floor(Math.random() * 100) + 1;
+        tabla += "<td>" + numero + "</td>";
+    }
+
+    tabla += "</tr></table>";
+
+    contenedor.innerHTML = tabla;
+}
+
+function sumarTabla() {
+    const celdas = document.querySelectorAll("td");
+    let suma = 0;
+
+    celdas.forEach(celda => {
+        suma += parseInt(celda.innerText);
+    });
+
+    document.getElementById("resultado").innerText =
+        "Suma total: " + suma;
+}
+</script>
+
+</body>
+</html>

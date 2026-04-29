@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Página 2</title>
+</head>
+<body>
+
+<h2>Calculadora dinámica</h2>
+
+<label>Valor 1:</label>
+<input type="number" id="num1"><br><br>
+
+<label>Valor 2:</label>
+<input type="number" id="num2"><br><br>
+
+<label>Operador:</label>
+<select id="operador">
+    <!-- Aritméticos -->
+    <option value="+">Suma (+)</option>
+    <option value="-">Resta (-)</option>
+    <option value="*">Multiplicación (*)</option>
+    <option value="/">División (/)</option>
+
+    <!-- Lógicos -->
+    <option value="&&">AND (&&)</option>
+    <option value="||">OR (||)</option>
+
+    <!-- Bits -->
+    <option value="&">AND bits (&)</option>
+    <option value="|">OR bits (|)</option>
+    <option value="^">XOR bits (^)</option>
+</select>
+
+<br><br>
+
+<button onclick="calcular()">Calcular</button>
+
+<p id="resultado"></p>
+
+<script>
+function calcular() {
+    let a = parseInt(document.getElementById("num1").value);
+    let b = parseInt(document.getElementById("num2").value);
+    let op = document.getElementById("operador").value;
+    let resultado;
+
+    switch(op) {
+        case "+": resultado = a + b; break;
+        case "-": resultado = a - b; break;
+        case "*": resultado = a * b; break;
+        case "/": resultado = b !== 0 ? a / b : "Error (división por 0)"; break;
+
+        // Lógicos
+        case "&&": resultado = a && b; break;
+        case "||": resultado = a || b; break;
+
+        // Bits
+        case "&": resultado = a & b; break;
+        case "|": resultado = a | b; break;
+        case "^": resultado = a ^ b; break;
+
+        default: resultado = "Operador no válido";
+    }
+
+    document.getElementById("resultado").innerText =
+        "Resultado: " + resultado;
+}
+</script>
+
+</body>
+</html>
